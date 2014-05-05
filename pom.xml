@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.iron.ironworker.sendgrid</groupId>
+	<artifactId>simple</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>simple</name>
+	<description>Java example of using SendGrid from IronWorker: Send emails via Sendgrid. Use IronMQ to "pump" emails to this IronWorker module.</description>
+	<url>https://github.com/mikkoi/io.iron.ironworker.sendgrid.simple</url>
+	<inceptionYear>2014</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>GNU GENERAL PUBLIC LICENSE Version 2</name>
+			<url>http://www.gnu.org/licenses/gpl-2.0.html</url>
+			<distribution>Free</distribution>
+			<comments>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</comments>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>Koivunalho</name>
+		<url>http://www.koivunalho.org</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>mikkoi</id>
+			<name>Mikko Koivunalho</name>
+			<email>mikko.koivunalho@iki.fi</email>
+			<url>http://www.about.me/mikkokoivunalho</url>
+			<organization>Private</organization>
+			<organizationUrl>http://www.linkedin.com/in/mikkokoivunalho/</organizationUrl>
+			<roles>
+				<role>requirements analyst</role>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>Europe/Stockholm</timezone>
+			<properties>
+				<cpanUrl>https://metacpan.org/author/MIKKOI</cpanUrl>
+				<gitHubUrl>https://github.com/mikkoi</gitHubUrl>
+			</properties>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<slf4jVersion>1.7.7</slf4jVersion>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JSON parsing -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+
+		<!-- CLI argument parsing -->
+		<dependency>
+			<groupId>com.beust</groupId>
+			<artifactId>jcommander</artifactId>
+			<version>1.35</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
+
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+
+		<!-- IronCache access: semaphore / SendGrid access parameters -->
+		<dependency>
+			<groupId>com.github.mrcritical</groupId>
+			<artifactId>ironcache</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- Sendgrid (email sending) API -->
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>sendgrid-java</artifactId>
+			<version>0.2.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>io.iron.ironworker.sendgrid.App</mainClass>
+							<packageName>io.iron.ironworker.sendgrid</packageName>
+							<packageName>org.slf4j</packageName>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

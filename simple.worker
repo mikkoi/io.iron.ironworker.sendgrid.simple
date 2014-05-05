@@ -1,0 +1,5 @@
+runtime "java"
+stack "java-1.7"
+name "io.iron.ironworker.sendgrid.simple"
+exec "target/simple-1.0-SNAPSHOT-jar-with-dependencies.jar"
+file "config.json"

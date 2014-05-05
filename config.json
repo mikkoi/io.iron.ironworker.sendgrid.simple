@@ -1,0 +1,13 @@
+{"semaphore":{
+	"project_id":"PROJECT_ID",
+	"token":"TOKEN",
+	"host":"cache-aws-us-east-1.iron.io",
+	"cacheName":"io.iron.ironworker.sendgrid",
+	"key":"semaphore"}
+,"sendGridAccess":{
+	"project_id":"PROJECT_ID",
+	"token":"TOKEN",
+	"host":"cache-aws-us-east-1.iron.io",
+	"cacheName":"io.iron.ironworker.sendgrid",
+	"key":"accessParameters"}
+}
