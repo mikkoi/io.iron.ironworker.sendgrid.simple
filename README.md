@@ -1,7 +1,7 @@
 io.iron.ironworker.sendgrid.simple
 ==================================
 
-Java example of using SendGrid from IronWorker: Send emails via Sendgrid. Use IronMQ to "pump" emails to this IronWorker module.
+Java example of using SendGrid from IronWorker (http://www.iron.io/worker): Send emails via Sendgrid (https://www.sendgrid.com). Use IronMQ or a webhook to "pump" emails to this IronWorker module.
 
 This example tries to emphasize some development best practises (or at least my view of them) when using Iron.io's systems (IronMQ, IronCache and IronWorker) with Java.
 
