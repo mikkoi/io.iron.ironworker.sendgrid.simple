@@ -31,6 +31,6 @@ Upload:
 
 ```bash
 maven install assembly:single
-iron_worker update single
+iron_worker update simple
 ```
 
