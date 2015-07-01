@@ -12,7 +12,7 @@ This example tries to emphasize some development best practises (or at least my 
 * Argument parsing with JCommander Java package (http://jcommander.org/).
 * Those parts of configuration which will need to be changed periodically are read from IronCache.
 * All configuration and payloads are inputed as JSON. JSON is parsed with Google's GSON library (https://code.google.com/p/google-gson/).
-* Pack everything (all Java packages and their related configuration/deployment options) into one jar file to ensure the worker has all dependencies it needs. (Use Maven option *assembly:single* for this.)
+* Pack everything (all Java packages and their related configuration/deployment options) into one jar file to ensure the worker has all dependencies it needs. (Use Maven *maven-assembly-plugin* or running *mvn package assembly:single* for this.)
 
 How to deploy to IronWorker
 ---------------------------
@@ -30,7 +30,7 @@ You need:
 Upload:
 
 ```bash
-maven install assembly:single
+mvn package
 iron_worker update simple
 ```
 
